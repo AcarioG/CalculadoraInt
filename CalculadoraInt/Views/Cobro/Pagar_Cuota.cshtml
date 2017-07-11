@@ -1,0 +1,55 @@
+﻿@model CalculadoraInt.Models.Cuotas
+
+@{
+    ViewBag.Title = "Pagar_Cuota";
+}
+
+<h2>Pagar_Cuota</h2>
+
+<h3>Confirme su pago de cuota</h3>
+<div>
+    <hr />
+    <dl id="print_div" class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Periodo) :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuota) :
+        </dt>
+
+        <dd>
+            RD$ @Html.DisplayFor(model => model.Cuota)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Pagar_Cuota", "Cobro", FormMethod.Post, new { id = "frmId" }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Cancelar", "Detalle_Prestamo", new { id = Model.PrestamoID }, new { @class = "btn btn-danger" })
+            <input type="submit" value="Pagar" class="btn btn-success" />
+
+        </div>
+    }
+    <script>
+    document.getElementById("frmId").onsubmit = function() {myFunction()};
+
+        function myFunction()
+        {
+        var printContents = document.getElementById("print_div").innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+        }
+    </script>
+</div>

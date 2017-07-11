@@ -1,0 +1,88 @@
+﻿@model CalculadoraInt.Models.Clientes
+
+@{
+    ViewBag.Title = "Detalles de Prestamos";
+}
+<h2>@CalculadoraInt.Resources.Resources.PrestamoDelCliente: <strong> @Html.DisplayFor(model => model.Nombre)</strong></h2>
+
+<div>
+    <h4>@CalculadoraInt.Resources.Resources.DetalleDelCliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @CalculadoraInt.Resources.Resources.Cedula
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            @CalculadoraInt.Resources.Resources.Telefono
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @CalculadoraInt.Resources.Resources.Direccion
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+    </dl>
+    <hr />
+    <h4>@CalculadoraInt.Resources.Resources.PrestamoDelCliente</h4>
+
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @CalculadoraInt.Resources.Resources.Monto
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Plazo
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Interes
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Estado
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Accion
+        </th>
+    </tr>
+    @foreach (var item in Model.Prestamo.ToArray())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plazo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+
+                @Html.ActionLink(CalculadoraInt.Resources.Resources.Seleccionar, "Detalle_Prestamo", new { id = item.PrestamoID }, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    <a href="@Url.Action("Clientes", "Cobro")" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> @CalculadoraInt.Resources.Resources.Atras</a>
+</p>
+
+
+

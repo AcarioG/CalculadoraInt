@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CalculadoraInt.Models.Clientes>
+
+@{
+    ViewBag.Title = "Cobro";
+}
+
+<h2>@CalculadoraInt.Resources.Resources.BuscarCliente</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group input-group">
+        <span class="input-group-addon">@CalculadoraInt.Resources.Resources.Nombre</span>
+        @Html.TextBox("SearchString", null, new { @class = "form-control" })
+        <input class="btn btn-primary" type="submit" value="@CalculadoraInt.Resources.Resources.Buscar" />
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(CalculadoraInt.Resources.Resources.Nombre, "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.ActionLink(CalculadoraInt.Resources.Resources.Cedula, "Index", new { sortOrder = ViewBag.CedulaSortParm })
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Telefono
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Direccion
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Nombre
+            </td>
+            <td>
+                @item.Cedula
+
+            </td>
+            <td>
+                @item.Telefono
+            </td>
+            <td>
+                @item.Direccion
+            </td>
+            <td>
+
+                @Html.ActionLink(CalculadoraInt.Resources.Resources.MostrarPrestamos, "Prestamos", new { id = item.ClienteID }, new { @class = "btn btn-primary" })
+
+            </td>
+        </tr>
+    }
+
+</table>

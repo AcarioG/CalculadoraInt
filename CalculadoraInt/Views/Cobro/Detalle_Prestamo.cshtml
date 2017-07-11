@@ -1,0 +1,111 @@
+﻿@model CalculadoraInt.Models.Prestamo
+
+@{
+    ViewBag.Title = CalculadoraInt.Resources.Resources.Cuotas;
+}
+
+<h2>@CalculadoraInt.Resources.Resources.Cuotas</h2>
+
+<div>
+    <h4>Selecciona la cuota a pagar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @CalculadoraInt.Resources.Resources.Nombre;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+
+        <dt>
+            @CalculadoraInt.Resources.Resources.Monto
+        </dt>
+
+        <dd>
+            RD$ @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @CalculadoraInt.Resources.Resources.Plazo
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plazo) meses
+        </dd>
+
+        <dt>
+            @CalculadoraInt.Resources.Resources.Interes
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interes) %
+        </dd>
+        <dt>
+            @Html.ActionLink(CalculadoraInt.Resources.Resources.PagarCuota, "Pagar_Cuota", new { id = Model.Cuotas.ToArray()[0].CuotasID }, new { @class = "btn btn-success" })
+        </dt>
+        <dd>
+            @Html.ActionLink(CalculadoraInt.Resources.Resources.SaldarPrestamo, "Saldar_Prestamo", new { id = Model.PrestamoID }, new { @class = "btn btn-danger" })
+        </dd>
+
+    </dl>
+    <dl></dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            #
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Cuotas
+        </th>
+        <th>
+            @CalculadoraInt.Resources.Resources.Interes
+        </th>
+        <th>
+            Amortiz al Principal
+        </th>
+        <th>
+            Amortiz Acumulada
+        </th>
+        <th>
+            Capital Pendiente
+        </th>
+
+    </tr>
+    @foreach (var item in Model.Cuotas.ToArray())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Periodo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cuota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amortiz_Principal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amortiz_Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capital_Pendiente)
+            </td>
+
+            <td>
+                @Html.ActionLink("Abonar", "Edit", "Cuotas", new { id = Model.Cuotas.ToArray()[0].CuotasID }, new { @class = "btn btn-success" })
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+
+<p>
+    @Html.ActionLink("Atras", "Prestamos", new { id = Model.ClienteID }, new { @class = "btn btn-info" })
+</p>

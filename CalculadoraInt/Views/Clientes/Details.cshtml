@@ -1,0 +1,101 @@
+﻿@model CalculadoraInt.Models.Clientes
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cedula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cedula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+    </dl>
+
+</div>
+
+<div style="float: left; width:60%;">
+    <iframe width="100%"
+            height="450"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDPXC0t4DTC5OGsdBL986ob8GSVBqR9-YY&q=@Html.DisplayFor(Model
+            => Model.Direccion)" allowfullscreen></iframe>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            Monto
+        </th>
+        <th>
+            Plazo
+        </th>
+        <th>
+            Interes
+        </th>
+        <th>
+            Estado
+        </th>
+    </tr>
+    @foreach (var item in Model.Prestamo.ToArray())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Plazo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Interes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+
+                @Html.ActionLink("Detalles", "Details", "Prestamo", new { id = item.PrestamoID }, null) |
+                @Html.ActionLink("Borrar", "Delete", "Prestamo", new { id = item.PrestamoID }, null)
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ClienteID }) |
+    @Html.ActionLink("Atras", "Index")
+</p>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CalculadoraInt.Models.Cuotas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Prestamo.PrestamoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Periodo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cuota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Interes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amortiz_Principal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amortiz_Total)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capital_Pendiente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prestamo.PrestamoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Periodo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cuota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Interes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amortiz_Principal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amortiz_Total)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capital_Pendiente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CuotasID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CuotasID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CuotasID })
+        </td>
+    </tr>
+}
+
+</table>

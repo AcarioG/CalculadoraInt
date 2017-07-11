@@ -1,0 +1,82 @@
+﻿@model CalculadoraInt.Models.Cuotas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cuotas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Prestamo.PrestamoID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prestamo.PrestamoID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Periodo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Periodo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cuota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cuota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amortiz_Principal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amortiz_Principal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amortiz_Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amortiz_Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capital_Pendiente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capital_Pendiente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CuotasID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

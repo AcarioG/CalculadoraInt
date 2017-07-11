@@ -1,0 +1,58 @@
+﻿@model CalculadoraInt.Models.Prestamo
+
+@{
+    ViewBag.Title = "SaldarPrestamos";
+}
+
+<h2>SaldarPrestamos</h2>
+
+<h3>Esta seguro de que va saldar el prestamo por RD$ @Html.DisplayFor(model => model.Monto)?</h3>
+<div>
+    <h4>Prestamo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monto)
+        </dt>
+
+        <dd>
+            RD$ @Html.DisplayFor(model => model.Monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Plazo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Plazo) meses
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Interes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Interes) %
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-danger" })
+            <input type="submit" value="Saldar" class="btn btn-success" />
+
+        </div>
+    }
+</div>
