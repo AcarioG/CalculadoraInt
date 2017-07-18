@@ -13,10 +13,8 @@ namespace CalculadoraInt.Models
         [Required]
         public String Nombre { get; set; }
         [Required]
-        public String Apellido { get; set; }
-        [Required]
         public String Direccion { get; set; }
-        
+        [Required]
         public String Telefono { get; set; }
         [Required]
         public String Cedula { get; set; }

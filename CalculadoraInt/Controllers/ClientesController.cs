@@ -66,9 +66,7 @@ namespace CalculadoraInt.Controllers
             return View();
         }
 
-        // POST: Cliente/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ClienteID,Nombre,Cedula,Telefono,Celular,Direccion")] Clientes cliente)

@@ -13,7 +13,7 @@ namespace CalculadoraInt.DF
         {
             var clientes = new List<Clientes>
             {
-                new Clientes {Nombre= "Wilmer", Apellido= "Vasquez", Telefono= "809-292-2131", Cedula= "402700760772", Direccion= "Sabana Perdida"}
+                new Clientes {Nombre= "Wilmer", Telefono= "809-292-2131", Cedula= "402700760772", Direccion= "Sabana Perdida"}
             };
 
             clientes.ForEach(s => context.Cliente.Add(s));

@@ -168,6 +168,14 @@
     <Compile Include="Migrations\201707111329113_telefononorequerido.Designer.cs">
       <DependentUpon>201707111329113_telefononorequerido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707182002518_notrequeredapellido.cs" />
+    <Compile Include="Migrations\201707182002518_notrequeredapellido.Designer.cs">
+      <DependentUpon>201707182002518_notrequeredapellido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707182012345_sinapellido.cs" />
+    <Compile Include="Migrations\201707182012345_sinapellido.Designer.cs">
+      <DependentUpon>201707182012345_sinapellido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Clientes.cs" />
     <Compile Include="Models\Cuotas.cs" />
@@ -261,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707111329113_telefononorequerido.resx">
       <DependentUpon>201707111329113_telefononorequerido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707182002518_notrequeredapellido.resx">
+      <DependentUpon>201707182002518_notrequeredapellido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707182012345_sinapellido.resx">
+      <DependentUpon>201707182012345_sinapellido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
